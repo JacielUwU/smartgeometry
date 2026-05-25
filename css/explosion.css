@@ -1,0 +1,48 @@
+/* ── Panel de explosión ── */
+#panel-explosion.panel-visible {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #1e1e35;
+}
+
+.explosion-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.explosion-valores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d0d1e;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+/* ── Slider ── */
+#slider-explosion {
+  width: 100%;
+  appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: #1e1e35;
+  outline: none;
+  cursor: pointer;
+}
+
+#slider-explosion::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #6c63ff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+#slider-explosion::-webkit-slider-thumb:hover {
+  background: #5a52d5;
+}

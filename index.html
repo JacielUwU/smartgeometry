@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartGeometry</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/calculadora.css" />
+  <link rel="stylesheet" href="css/comparar.css" />
+  <link rel="stylesheet" href="css/explosion.css" />
+</head>
+<body>
+
+  <!-- Botón hamburguesa -->
+  <button id="btn-hamburguesa">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Overlay -->
+  <div id="overlay"></div>
+
+  <aside id="menu">
+    <h1>Smart<span>Geometry</span></h1>
+    <p class="subtitulo">Selecciona una figura</p>
+
+    <div class="lista-figuras">
+      <button class="btn-figura activo" data-figura="cubo">Cubo</button>
+      <button class="btn-figura" data-figura="esfera">Esfera</button>
+      <button class="btn-figura" data-figura="prisma">Prisma</button>
+      <button class="btn-figura" data-figura="piramide">Pirámide</button>
+      <button class="btn-figura" data-figura="cilindro">Cilindro</button>
+      <button class="btn-figura" data-figura="cono">Cono</button>
+    </div>
+
+    <div id="controles-vista">
+      <p class="subtitulo">Visualización</p>
+      <button id="btn-wireframe" class="btn-modo">Modo alámbrico</button>
+      <button id="btn-pausa" class="btn-modo">Pausar rotación</button>
+      <button id="btn-reset" class="btn-modo">Resetear cámara</button>
+      <button id="btn-transparente" class="btn-modo">Transparencia</button>
+      <button id="btn-aristas" class="btn-modo">Resaltar aristas</button>
+      <button id="btn-vertices" class="btn-modo">Mostrar vértices</button>
+      <button id="btn-manos" class="btn-modo">Control con manos</button>
+      <button id="btn-comparar" class="btn-modo">Comparar figuras</button>
+      <button id="btn-explosion" class="btn-modo">Explotar figura</button>
+    </div>
+
+    <!-- Panel de comparación -->
+    <div id="panel-comparar" class="panel-oculto">
+      <p class="subtitulo">Segunda figura</p>
+      <div class="lista-figuras">
+        <button class="btn-comparar-figura" data-figura="cubo">Cubo</button>
+        <button class="btn-comparar-figura" data-figura="esfera">Esfera</button>
+        <button class="btn-comparar-figura" data-figura="prisma">Prisma</button>
+        <button class="btn-comparar-figura" data-figura="piramide">Pirámide</button>
+        <button class="btn-comparar-figura" data-figura="cilindro">Cilindro</button>
+        <button class="btn-comparar-figura" data-figura="cono">Cono</button>
+      </div>
+    </div>
+
+    <!-- Panel de explosión -->
+    <div id="panel-explosion" class="panel-oculto">
+      <p class="subtitulo">Explosión</p>
+      <div class="explosion-control">
+        <input type="range" id="slider-explosion" min="0" max="100" value="0" />
+        <div class="explosion-valores">
+          <span class="info-label">Separación</span>
+          <span class="info-valor" id="valor-explosion">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="info-panel">
+      <p class="subtitulo">Información</p>
+      <div class="info-dato">
+        <span class="info-label">Caras</span>
+        <span class="info-valor" id="info-caras">6</span>
+      </div>
+      <div class="info-dato">
+        <span class="info-label">Vértices</span>
+        <span class="info-valor" id="info-vertices">8</span>
+      </div>
+      <div class="info-dato">
+        <span class="info-label">Aristas</span>
+        <span class="info-valor" id="info-aristas">12</span>
+      </div>
+      <div class="info-formula">
+        <p class="info-label">Volumen</p>
+        <p class="info-valor" id="info-volumen">a³</p>
+      </div>
+      <div class="info-formula">
+        <p class="info-label">Área</p>
+        <p class="info-valor" id="info-area">6a²</p>
+      </div>
+    </div>
+  </aside>
+
+  <div id="canvas-container"></div>
+
+  <div id="nombre-figura">Cubo</div>
+
+  <!-- Calculadora flotante -->
+  <div id="calculadora-wrapper">
+    <div id="calculadora" class="calculadora-oculta">
+      <div id="calculadora-header">
+        <span id="calculadora-titulo">Calculadora — Cubo</span>
+        <button id="btn-cerrar-calc">✕</button>
+      </div>
+      <div id="calculadora-body">
+        <div id="campos-calc"></div>
+        <div id="resultados-calc">
+          <div class="resultado-item">
+            <span class="resultado-label">Volumen</span>
+            <span class="resultado-valor" id="resultado-volumen">—</span>
+          </div>
+          <div class="resultado-item">
+            <span class="resultado-label">Área</span>
+            <span class="resultado-valor" id="resultado-area">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btn-calculadora">Calculadora</button>
+  </div>
+
+  <div id="calculadora-wrapper">
+
+    <!-- Panel de fórmulas flotante -->
+    <div id="formulas-flotante" class="calculadora-oculta">
+      <div id="formulas-header">
+        <span id="formulas-titulo">Fórmulas — Cubo</span>
+        <button id="btn-cerrar-formulas">✕</button>
+      </div>
+      <div id="formulas-panel"></div>
+    </div>
+
+    <!-- Botón abrir fórmulas -->
+    <button id="btn-formulas">Fórmulas</button>
+
+    <div id="calculadora" class="calculadora-oculta">
+      ...
+    </div>
+    <button id="btn-calculadora">Calculadora</button>
+
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

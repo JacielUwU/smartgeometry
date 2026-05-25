@@ -1,0 +1,80 @@
+/* ── Hamburguesa ── */
+#btn-hamburguesa {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 100;
+  background-color: #0f0f1e;
+  border: 1px solid #1e1e35;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#btn-hamburguesa span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ── Overlay ── */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+
+#overlay.visible {
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+
+  body {
+    flex-direction: column;
+  }
+
+  #btn-hamburguesa {
+    display: flex;
+  }
+
+  #menu {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100vh;
+    z-index: 99;
+    transition: left 0.3s ease;
+    width: 260px;
+  }
+
+  #menu.abierto {
+    left: 0;
+  }
+
+  #canvas-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  #nombre-figura {
+    left: 50%;
+    font-size: 18px;
+  }
+
+}
