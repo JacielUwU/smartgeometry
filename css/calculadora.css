@@ -1,9 +1,6 @@
 /* ── Botón abrir calculadora ── */
-#btn-calculadora {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 200;
+#btn-calculadora,
+#btn-formulas {
   background-color: #6c63ff;
   color: #ffffff;
   border: none;
@@ -15,11 +12,10 @@
   cursor: pointer;
   transition: all 0.2s ease;
   letter-spacing: 0.5px;
-  width: auto;
-  height: auto;
-}
+};
 
-#btn-calculadora:hover {
+#btn-calculadora:hover,
+#btn-formulas:hover {
   background-color: #5a52d5;
   transform: translateY(-2px);
 }
@@ -27,7 +23,7 @@
 /* ── Panel flotante ── */
 #calculadora {
   position: fixed;
-  bottom: 80px;
+  bottom: 140px;
   right: 24px;
   width: 280px;
   background-color: #0f0f1e;
@@ -166,4 +162,32 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
+}
+
+/* Contenedor de botones */
+#botones-flotantes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Panel de fórmulas */
+#formulas-flotante {
+  position: fixed;
+  bottom: 140px;
+  right: 24px;
+  width: 280px;
+  background-color: #0f0f1e;
+  border: 1px solid #1e1e35;
+  border-radius: 12px;
+  z-index: 50;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Ocultar paneles */
+.calculadora-oculta {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
 }

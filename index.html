@@ -102,52 +102,52 @@
 
   <div id="nombre-figura">Cubo</div>
 
-  <!-- Calculadora flotante -->
-  <div id="calculadora-wrapper">
-    <div id="calculadora" class="calculadora-oculta">
-      <div id="calculadora-header">
-        <span id="calculadora-titulo">Calculadora — Cubo</span>
-        <button id="btn-cerrar-calc">✕</button>
-      </div>
-      <div id="calculadora-body">
-        <div id="campos-calc"></div>
-        <div id="resultados-calc">
-          <div class="resultado-item">
-            <span class="resultado-label">Volumen</span>
-            <span class="resultado-valor" id="resultado-volumen">—</span>
-          </div>
-          <div class="resultado-item">
-            <span class="resultado-label">Área</span>
-            <span class="resultado-valor" id="resultado-area">—</span>
-          </div>
+  <!-- Paneles y botones flotantes -->
+<div id="calculadora-wrapper">
+
+  <!-- Calculadora -->
+  <div id="calculadora" class="calculadora-oculta">
+    <div id="calculadora-header">
+      <span id="calculadora-titulo">Calculadora — Cubo</span>
+      <button id="btn-cerrar-calc">✕</button>
+    </div>
+
+    <div id="calculadora-body">
+      <div id="campos-calc"></div>
+
+      <div id="resultados-calc">
+        <div class="resultado-item">
+          <span class="resultado-label">Volumen</span>
+          <span class="resultado-valor" id="resultado-volumen">—</span>
+        </div>
+
+        <div class="resultado-item">
+          <span class="resultado-label">Área</span>
+          <span class="resultado-valor" id="resultado-area">—</span>
         </div>
       </div>
     </div>
-    <button id="btn-calculadora">Calculadora</button>
   </div>
 
-  <div id="calculadora-wrapper">
-
-    <!-- Panel de fórmulas flotante -->
-    <div id="formulas-flotante" class="calculadora-oculta">
-      <div id="formulas-header">
-        <span id="formulas-titulo">Fórmulas — Cubo</span>
-        <button id="btn-cerrar-formulas">✕</button>
-      </div>
-      <div id="formulas-panel"></div>
+  <!-- Fórmulas -->
+  <div id="formulas-flotante" class="calculadora-oculta">
+    <div id="formulas-header">
+      <span id="formulas-titulo">Fórmulas — Cubo</span>
+      <button id="btn-cerrar-formulas">✕</button>
     </div>
 
-    <!-- Botón abrir fórmulas -->
+    <div id="formulas-panel"></div>
+  </div>
+
+  <!-- Botones -->
+  <div id="botones-flotantes">
     <button id="btn-formulas">Fórmulas</button>
-
-    <div id="calculadora" class="calculadora-oculta">
-      ...
-    </div>
     <button id="btn-calculadora">Calculadora</button>
-
   </div>
 
-  <script type="module" src="js/main.js"></script>
+</div>
+
+<script type="module" src="js/main.js"></script>
 
 </body>
 </html>

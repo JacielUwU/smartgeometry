@@ -125,36 +125,39 @@ export function iniciarCalculadora() {
   const panel = document.getElementById('calculadora');
   const titulo = document.getElementById('calculadora-titulo');
 
-  let figuraActual = 'cubo';
-  generarCampos(figuraActual);
-
-  // Abrir/cerrar
-  btnAbrir.addEventListener('click', () => {
-    panel.classList.toggle('calculadora-oculta');
-  });
-
-  btnCerrar.addEventListener('click', () => {
-    panel.classList.add('calculadora-oculta');
-  });
-
-  // Actualizar al cambiar figura
-  const botones = document.querySelectorAll('.btn-figura');
-  botones.forEach(btn => {
-    btn.addEventListener('click', () => {
-      figuraActual = btn.dataset.figura;
-      titulo.textContent = `Calculadora — ${btn.textContent}`;
-      generarCampos(figuraActual);
-    });
-  });
-}
-
-// Botón fórmulas
   const btnFormulas = document.getElementById('btn-formulas');
   const panelFormulas = document.getElementById('formulas-flotante');
   const btnCerrarFormulas = document.getElementById('btn-cerrar-formulas');
 
+  let figuraActual = 'cubo';
+  generarCampos(figuraActual);
+
+  // Botón Calculadora
+  btnAbrir.addEventListener('click', () => {
+
+    // Si fórmulas está abierta, cerrarla
+    if (panelFormulas) {
+      panelFormulas.classList.add('calculadora-oculta');
+    }
+
+    // Abrir/cerrar calculadora
+    panel.classList.toggle('calculadora-oculta');
+  });
+
+  // Cerrar calculadora
+  btnCerrar.addEventListener('click', () => {
+    panel.classList.add('calculadora-oculta');
+  });
+
+  // Botón Fórmulas
   if (btnFormulas) {
+
     btnFormulas.addEventListener('click', () => {
+
+      // Si calculadora está abierta, cerrarla
+      panel.classList.add('calculadora-oculta');
+
+      // Abrir/cerrar fórmulas
       panelFormulas.classList.toggle('calculadora-oculta');
     });
 
@@ -162,3 +165,17 @@ export function iniciarCalculadora() {
       panelFormulas.classList.add('calculadora-oculta');
     });
   }
+
+  // Actualizar al cambiar figura
+  const botones = document.querySelectorAll('.btn-figura');
+
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      figuraActual = btn.dataset.figura;
+
+      titulo.textContent = `Calculadora — ${btn.textContent}`;
+
+      generarCampos(figuraActual);
+    });
+  });
+}
